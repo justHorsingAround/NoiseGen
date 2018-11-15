@@ -18,6 +18,11 @@ namespace noise
             return Math.Pow(t, 3) * (t * (t * 6 - 15) + 10);  // 6t^5 - 15t^4 + 10t^3
         }
 
+        private double Lerp(double t, double a, double b)
+        {
+            return a + t * (b - a);
+        }
+
 
         private void FillPermArray()
         {
