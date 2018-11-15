@@ -1,19 +1,27 @@
 ﻿using System.Collections.Generic;
 
-namespace perlin
+namespace noise
 {
 
     class Octave
     {
-        public double noise;
-        public double amplitude;
+        internal Perlin perlin;
+        private double amplitude;
+
+        public Octave(Perlin p, double amplitude)
+        {
+            this.perlin = p;
+            this.amplitude = amplitude;
+        }
+
+        public double GetAmplitude() { return amplitude; }
     }
 
     class OctavesCollection
     {
-        private List<Octave> octaves = new List<Octave>();
+        internal List<Octave> octaves = new List<Octave>();
 
-        public List<Octave> getOctaves() { return octaves; }
+        public int Size() { return octaves.Count; }
         public void AddToOctaves(Octave oct)
         {
             octaves.Add(oct);
