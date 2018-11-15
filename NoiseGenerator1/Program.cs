@@ -10,20 +10,30 @@ class Program
         Perlin noise = new Perlin();
         Random rnd = new Random();
 
-        int width = 256; // read from file
-        int height = 256; // read from file
-        var bmp = new Bitmap(width, height);
+        const int IMAGE_WIDTH = 1024; // read from file
+        const int IMAGE_HEIGHT = 1024; // read from file
+        double FREQUENCY_X = 0;
+        double FREQUENCY_Y = 0;
 
-        for (int y = 0; y < height; y++)
+        var bmp = new Bitmap(IMAGE_WIDTH, IMAGE_HEIGHT);
+
+        
+
+        double dx = FREQUENCY_X / IMAGE_WIDTH;
+        double dy = FREQUENCY_Y / IMAGE_HEIGHT;
+        for (int y = 0; y < IMAGE_HEIGHT; ++y)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < IMAGE_WIDTH; ++x)
             {
-                double pn = noise.Generate(rnd.NextDouble(), rnd.NextDouble());
-                int rgb = EvalGrayscale(pn);
+                double xpos = x * dx;
+                double ypos = y * dy;
+                double val = noise.Generate(xpos, ypos);
+                int rgb = EvalGrayscale(val);
                 bmp.SetPixel(x, y, Color.FromArgb(255, rgb, rgb, rgb));
             }
         }
-        
+       
+        bmp.Save("C:/Users/Stable-tec/Pictures/test.png");
         Console.WriteLine("Done");
         Console.Read();
     }

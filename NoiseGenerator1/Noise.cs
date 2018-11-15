@@ -5,7 +5,7 @@ namespace noise
     class Perlin
     {
         const ushort PERMARRAYSIZE = 512;  // should be 2^n
-        private static readonly int[] perm = new int[PERMARRAYSIZE];
+        private readonly int[] perm = new int[PERMARRAYSIZE];
 
         public Perlin()
         {
