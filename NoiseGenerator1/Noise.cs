@@ -4,8 +4,8 @@ namespace noise
 {
     class Perlin
     {
-        const ushort PERMARRAYSIZE = 512;  // should be 2^n
-        private readonly int[] perm = new int[PERMARRAYSIZE];
+        const ushort PERM_ARRAY_SIZE = 512;  // should be 2^n
+        private readonly int[] perm = new int[PERM_ARRAY_SIZE];
 
         public Perlin()
         {
@@ -68,7 +68,7 @@ namespace noise
         private void FillPermArray()
         {
             Random rnd = new Random();
-            for (int i = 0; i < PERMARRAYSIZE; i++)
+            for (int i = 0; i < PERM_ARRAY_SIZE; i++)
             {
                 perm[i] = rnd.Next(0, 255);
             }
