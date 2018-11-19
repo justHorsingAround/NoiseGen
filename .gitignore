@@ -12,8 +12,10 @@
 [Rr]elease/
 x64/
 [Bb]in/
+!bin/Visualizer/*
 [Oo]bj/
 .vs/
+
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
